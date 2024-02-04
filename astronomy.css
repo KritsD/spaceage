@@ -1,0 +1,14 @@
+@media screen {
+    html {
+        padding: 1rem;
+    }
+
+    ol {
+        display: flex;
+        flex-direction: row;
+    }
+
+    li {
+        padding: 0.5rem;
+    }
+}

@@ -1,0 +1,24 @@
+:root {
+    --typography-base: 1rem;
+
+    --typography-h1: calc(1 * var(--typography-base));
+    --typography-h2: calc(1 * var(--typography-base));
+    --typography-h3: calc(1 * var(--typography-base));
+    --typography-blockquote: calc(1 * var(--typography-base));
+    --typography-p: calc(1 * var(--typography-base));
+}
+
+@media screen {
+    html {
+        padding: 1rem;
+    }
+
+    ol {
+        display: flex;
+        flex-direction: row;
+    }
+
+    li {
+        padding: 0.5rem;
+    }
+}
