@@ -19,16 +19,19 @@
         padding: 2%;
         width: 100vw;
         overflow-x: hidden;
-        background-color: black;
+        background: linear-gradient(rgb(247, 248, 250), rgb(105, 102, 102));
+        -webkit-text-fill-color: black;
         color: white;
     }
 
-    main > li,
-    section {
+    section > ul {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: var(--spacing);
-        padding: 1rem;
+        grid-gap: 2%;
+    }
+
+    .block {
+        padding: 5rem;
     }
 
     h1 {
@@ -36,6 +39,7 @@
         background: linear-gradient(rgb(194, 195, 197), rgb(0, 0, 0));
         -webkit-text-fill-color: transparent; 
         -webkit-background-clip: text;
+        background-clip: text;
         text-align: center;
     }
 
@@ -53,6 +57,7 @@ h1, h2, h3, h4, h5, p,
     font-family: "Poppins", sans-serif;
     font-weight: 400;
     font-style: normal;
+    margin-top: 0.5rem;
 }
 
 .textcaption {
