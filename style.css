@@ -3,62 +3,58 @@
 @media screen {
 
     :root {
-        --typography-base: 0.5rem;
-    
-        --typography-h1: calc(10 * var(--typography-base));
-        --typography-h2: calc(2 * var(--typography-base));
+        --typography-base: 1rem;
+            
+        --typography-h1: calc(5 * var(--typography-base));
+        --typography-h2: calc(3 * var(--typography-base));
         --typography-h3: calc(2 * var(--typography-base));
         --typography-blockquote: calc(2 * var(--typography-base));
-        --typography-p: calc(2 * var(--typography-base));
+        --typography-p: calc(1 * var(--typography-base));
 
-        --gutter: calc(var(--font-size) * 2)
+        --gutter: calc(2 * var(--font-size));
+        --spacing: calc(2 * var(--font-size));
+    }                           
+
+    body {
+        padding: 2%;
+        width: 100vw;
+        overflow-x: hidden;
+        background-color: black;
+        color: white;
     }
 
-    html {
+    main > li,
+    section {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--spacing);
         padding: 1rem;
     }
 
     h1 {
-        font-size: calc(var(--typography-base) * 10);
-        color: blue;
+        font-size: calc(3 * var(--typography-base));
+        background: linear-gradient(rgb(194, 195, 197), rgb(0, 0, 0));
+        -webkit-text-fill-color: transparent; 
+        -webkit-background-clip: text;
+        text-align: center;
     }
 
     h2 {
-        font-size: calc(var(--typography-base) * 2);
+        font-size: calc(1 * var(--typography-base));
     }
+}
 
-    h3, h5,  blockquote {
-        margin: calc(var(--typography-base) * 2);
-    }
 
-    p {
-        margin: calc(var(--typography-base) * 2);
-    }
+/* GENERAL CODE*/
 
-    ul {
-        display: flex;
-        flex-direction: column;
-    }
+h1, h2, h3, h4, h5, p,
+.picture, 
+.block--text p {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
 
-    li {
-        padding: 0.5rem;
-        margin-left: 0.5rem;
-    }
-
-    .figure {
-        margin-right: 0.5rem;
-    }
-
-    h1, h2, h3, h4, h5, p,
-    .picture, 
-    .block--text p {
-        font-family: "Poppins", sans-serif;
-        font-weight: 400;
-        font-style: normal;
-        font-size: 0.8rem;
-    }
-
-    .textcaption {
-        color: green;
-    }
+.textcaption {
+    color: green;
 }

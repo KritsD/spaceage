@@ -62,6 +62,9 @@ let renderBlock = (block) => {
 				<img src="${block.image.square.url}" alt=${block.title}">
 			</figure>
 			<h3>${block.title}</h3>
+			<p>${block.created_at}</p>
+			${ block.description_html }
+			<p><a href="${ block.source.url }">See the original ↗</a></p>
 		</li>
 		`
 		channelBlocks.insertAdjacentHTML('beforeend', imageItem)
@@ -74,10 +77,13 @@ let renderBlock = (block) => {
 		`
 		<li class="block block--text">
 			<p><em>Text</em></p>
-				<text>
-					<p>${block.content_html}</p>
-				</text>
-				<p class="textcaption">${block.connected_at}</p>
+			<text>
+				<p>${block.content_html}</p>
+			</text>
+			<h3>${block.title}</h3>
+			<p class="textcaption">${block.created_at}</p>
+			${ block.description_html }
+			<p><a href="${ block.source.url }">See the original ↗</a></p>
 		</li>
 		`
 		channelBlocks.insertAdjacentHTML('beforeend', textItem)
