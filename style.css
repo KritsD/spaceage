@@ -20,6 +20,7 @@
 
     h1 {
         font-size: calc(var(--typography-base) * 10);
+        color: blue;
     }
 
     h2 {
