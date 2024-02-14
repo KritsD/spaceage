@@ -1,24 +1,63 @@
-:root {
-    --typography-base: 1rem;
-
-    --typography-h1: calc(1 * var(--typography-base));
-    --typography-h2: calc(1 * var(--typography-base));
-    --typography-h3: calc(1 * var(--typography-base));
-    --typography-blockquote: calc(1 * var(--typography-base));
-    --typography-p: calc(1 * var(--typography-base));
-}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 @media screen {
+
+    :root {
+        --typography-base: 0.5rem;
+    
+        --typography-h1: calc(10 * var(--typography-base));
+        --typography-h2: calc(2 * var(--typography-base));
+        --typography-h3: calc(2 * var(--typography-base));
+        --typography-blockquote: calc(2 * var(--typography-base));
+        --typography-p: calc(2 * var(--typography-base));
+
+        --gutter: calc(var(--font-size) * 2)
+    }
+
     html {
         padding: 1rem;
     }
 
-    ol {
+    h1 {
+        font-size: calc(var(--typography-base) * 10);
+    }
+
+    h2 {
+        font-size: calc(var(--typography-base) * 2);
+    }
+
+    h3, h5,  blockquote {
+        margin: calc(var(--typography-base) * 2);
+    }
+
+    p {
+        margin: calc(var(--typography-base) * 2);
+    }
+
+    ul {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
     }
 
     li {
         padding: 0.5rem;
+        margin-left: 0.5rem;
+    }
+
+    .figure {
+        margin-right: 0.5rem;
+    }
+
+    h1, h2, h3, h4, h5, p,
+    .picture, 
+    .block--text p {
+        font-family: "Poppins", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 0.8rem;
+    }
+
+    .textcaption {
+        color: green;
     }
 }
