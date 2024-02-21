@@ -42,8 +42,6 @@ let renderBlock = (block) => {
 			let audioItem =
 				`
 				<li>
-					<p><em>Audio</em></p>
-					<h3>${block.title}</h3>
 					<audio controls src="${ block.attachment.url }"></video>
 				</li>
 				`
@@ -60,7 +58,6 @@ let renderBlock = (block) => {
 				<li>
 					<p><em>VIDEO</em></p>
 					<video controls src="${ block.attachment.url }"></video>
-                    <h3>${block.title}</h3>
 				</li>
 				`
 			channelBlocks.insertAdjacentHTML('beforeend', videoItem)
@@ -80,8 +77,6 @@ let renderBlock = (block) => {
 			let linkedVideoItem =
 				`
 				<li>
-					<p><em>Linked Video</em></p>
-					<h3>${block.title}</h3>
 					${ block.embed.html }
 				</li>
 				`
@@ -94,8 +89,6 @@ let renderBlock = (block) => {
                 let richItem =
                 `
                     <li>
-                        <p><em>Video</em></p>
-						<h3>${block.title}</h3>
                         ${ block.embed.html }
                         
                     </li>

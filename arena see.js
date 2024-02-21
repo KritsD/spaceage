@@ -38,9 +38,7 @@ let renderBlock = (block) => {
 		let imageItem =
 			`
 			<li> 
-			<p> <em>IMAGE</em></p>
-			<img src="${block.image.square.url}">
-            <h3>${block.title}</h3>
+			<img src="${block.image.thumb.url}">
 			</li>
 			`
 		channelBlocks.insertAdjacentHTML('beforeend', imageItem)

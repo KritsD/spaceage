@@ -40,7 +40,7 @@ let renderBlock = (block) => {
 			<li class="block block--text">
             <p><em>TEXT</em></p>
 			<p> ${block.title} 
-            ${ block.description_html }
+            ${ block.content_html }
             <p><a href="${ block.source}">See the original ↗</a></p>
 			</li>
 			`
@@ -55,6 +55,11 @@ let renderBlock = (block) => {
 			<li>
 				<p><em>LINK</em></p>
 				<h3>${ block.title }</h3>
+                <picture>
+                    <source media="(max-width: 428px)" srcset="${ block.image.thumb.url }">
+                    <source media="(max-width: 640px)" srcset="${ block.image.large.url }">
+                    <img src="${ block.image.original.url }">
+                </picture>
 				${ block.description_html }
 				<p><a href="${ block.source.url }">See the original ↗</a></p>
 			</li>
@@ -80,6 +85,11 @@ let renderBlock = (block) => {
             <p><em>PDF</em></p>
                 <text>
                 <h3>${block.title}</h3>
+                <picture>
+                    <source media="(max-width: 428px)" srcset="${ block.image.thumb.url }">
+                    <source media="(max-width: 640px)" srcset="${ block.image.large.url }">
+                    <img src="${ block.image.original.url }">
+                </picture>
                 <p><a href="${ block.source.url }">See the original↗</a></p>
                     
         </li>
