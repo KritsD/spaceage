@@ -30,60 +30,26 @@ let placeChannelInfo = (data) => {
 
 // Then our big function for specific-block-type rendering:
 let renderBlock = (block) => {
-	console.log(block)
 	// To start, a shared `ul` where we’ll insert all our blocks
 	let channelBlocks = document.getElementById('channel-blocks')
 
-	// Links!
-	if (block.class == 'Link') {
-		let linkItem =
-			`
-			<li>
-				<p><em>Link</em></p>
-				<picture>
-					<source media="(max-width: 428px)" srcset="${ block.image.thumb.url }">
-					<source media="(max-width: 640px)" srcset="${ block.image.large.url }">
-					<img src="${ block.image.original.url }">
-				</picture>
-				<h3>${ block.title }</h3>
-				${ block.description_html }
-				<p><a href="${ block.source.url }">See the original ↗</a></p>
-			</li>
-			`
-		channelBlocks.insertAdjacentHTML('beforeend', linkItem)
-	}
+    if (block.class == 'Attachment') {
+		let attachment = block.attachment.content_type
 
-	// Images!
-	else if (block.class == 'Image') {
-		let imageItem =
-			`
-			<li> 
-			<p> <em>Image</em></p>
-			<img src="${block.image.square.url}" alt=${block.title}">
-			</li>
-			`
-		channelBlocks.insertAdjacentHTML('beforeend', imageItem)
-		// …up to you!
-
-			
-	}
-
-	// Text!
-	else if (block.class == 'Text') {
-		let textItem =
-		`
-			<li> 
-			<p> <em>Text</em></p>
-			<p> ${block.content_html}
-			</li>
-			`
-			channelBlocks.insertAdjacentHTML('beforeend', textItem)
-		// …up to you!
-	}
-
-	// Uploaded (not linked) media…
-	else if (block.class == 'Attachment') {
-		let attachment = block.attachment.content_type // Save us some repetition
+		// Uploaded audio!
+		if (attachment.includes('audio')) {
+			// …still up to you, but here’s an `audio` element:
+			let audioItem =
+				`
+				<li>
+					<p><em>Audio</em></p>
+					<h3>${block.title}</h3>
+					<audio controls src="${ block.attachment.url }"></video>
+				</li>
+				`
+			channelBlocks.insertAdjacentHTML('beforeend', audioItem)
+			// More on audio: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio
+		}
 
 		// Uploaded videos!
 		if (attachment.includes('video')) {
@@ -92,56 +58,30 @@ let renderBlock = (block) => {
 			let videoItem =
 				`
 				<li>
-					<p><em>Video</em></p>
+					<p><em>VIDEO</em></p>
 					<video controls src="${ block.attachment.url }"></video>
+                    <h3>${block.title}</h3>
 				</li>
 				`
 			channelBlocks.insertAdjacentHTML('beforeend', videoItem)
 			// More on video, like the `autoplay` attribute:
 			// https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video
 		}
+    }
+    
 
-		// Uploaded PDFs!
-		else if (attachment.includes('pdf')) {
-			let PDFItem =
-			`
-				<li class="block block--text">
-					<p><em>pdf</em></p>
-						<text>
-							<p>${block.image.original.url}</p>
-							<h3>${block.title}</h3>
-				</li>
-			`
-			channelBlocks.insertAdjacentHTML('beforeend', PDFItem)
-			// …up to you!
-		}
+        // Linked media…
+        else if (block.class == 'Media') {
+            let embed = block.embed.type
 
-		// Uploaded audio!
-		else if (attachment.includes('audio')) {
-			// …still up to you, but here’s an `audio` element:
-			let audioItem =
-				`
-				<li>
-					<p><em>Audio</em></p>
-					<audio controls src="${ block.attachment.url }"></video>
-				</li>
-				`
-			channelBlocks.insertAdjacentHTML('beforeend', audioItem)
-			// More on audio: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio
-		}
-	}
-
-	// Linked media…
-	else if (block.class == 'Media') {
-		let embed = block.embed.type
-
-		// Linked video!
+			// Linked video!
 		if (embed.includes('video')) {
 			// …still up to you, but here’s an example `iframe` element:
 			let linkedVideoItem =
 				`
 				<li>
 					<p><em>Linked Video</em></p>
+					<h3>${block.title}</h3>
 					${ block.embed.html }
 				</li>
 				`
@@ -149,25 +89,21 @@ let renderBlock = (block) => {
 			// More on iframe: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe
 		}
 
-		// Linked audio!
-		else if (embed.includes('rich')) {
-			let linkedrichItem =
-				`
-				<li>
-					<p><em>Linked Video</em></p>
-					${ block.embed.html }
-				</li>
-				`
-			channelBlocks.insertAdjacentHTML('beforeend', linkedrichItem)
-			// …up to you!
-
-			//Linked Audio Space mission
-			
-		}
-	}
+            // Linked audio!
+            if (embed.includes('rich')) {
+                let richItem =
+                `
+                    <li>
+                        <p><em>Video</em></p>
+						<h3>${block.title}</h3>
+                        ${ block.embed.html }
+                        
+                    </li>
+                    `
+                    channelBlocks.insertAdjacentHTML('beforeend', richItem)
+                }
+        }            
 }
-
-
 
 // It‘s always good to credit your work:
 let renderUser = (user, container) => { // You can have multiple arguments for a function!
