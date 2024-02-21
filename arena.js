@@ -171,15 +171,14 @@ let renderBlock = (block) => {
 
 // It‘s always good to credit your work:
 let renderUser = (user, container) => { // You can have multiple arguments for a function!
-	let userAddress =
-		`
-		<address>
-			<img src="${ user.avatar_image.display }">
-			<h3>${ user.first_name }</h3>
-			<p><a href="https://are.na/${ user.slug }">Are.na profile ↗</a></p>
-		</address>
-		`
-	container.insertAdjacentHTML('beforeend', userAddress)
+    let userAddress =
+        `
+        <address>
+            <h3>${ user.first_name }</h3>
+            <p><a href="https://are.na/${ user.slug }">Are.na profile ↗</a></p>
+        </address>
+        `
+    container.insertAdjacentHTML('beforeend', userAddress)
 }
 
 

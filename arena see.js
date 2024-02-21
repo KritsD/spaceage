@@ -17,8 +17,7 @@ let placeChannelInfo = (data) => {
     let channelDescription = document.getElementById('channel-description')
     let channelCount = document.getElementById('channel-count')
     let channelLink = document.getElementById('channel-link')
-
-	
+    
     // Then set their content/attributes to our data:
     channelTitle.innerHTML = data.title
     channelDescription.innerHTML = window.markdownit().render(data.metadata.description) // Converts Markdown → HTML
@@ -37,31 +36,34 @@ let renderBlock = (block) => {
 	if (block.class == 'Image') {
 		let imageItem =
 			`
-			<li> 
-			<img src="${block.image.thumb.url}">
-			</li>
+			    <li>
+			    <img src="${block.image.thumb.url}">
+			    </li>
 			`
 		channelBlocks.insertAdjacentHTML('beforeend', imageItem)
 		// …up to you!
     }
 }
 
+let highlightClass = 'highlight' 
+    let imageBlock = document.querySelector('.forimages') 
+    let switchButton = document.querySelector('#zoomimages')
 
+    switchButton.onclick = () => { // Attach the event.
+        imageBlock.classList.toggle(highlightClass) // Toggle the class!
+    };
 
 // It‘s always good to credit your work:
 let renderUser = (user, container) => { // You can have multiple arguments for a function!
     let userAddress =
         `
         <address>
-            <img src="${ user.avatar_image.display }">
             <h3>${ user.first_name }</h3>
             <p><a href="https://are.na/${ user.slug }">Are.na profile ↗</a></p>
         </address>
         `
     container.insertAdjacentHTML('beforeend', userAddress)
 }
-
-
 
 // Now that we have said what we can do, go get the data:
 fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-store' })
