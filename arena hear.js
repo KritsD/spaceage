@@ -55,7 +55,7 @@ let renderBlock = (block) => {
 			// …still up to you, but we’ll give you the `video` element:
 			let videoItem =
 				`
-				<li>
+				<li class="block block--text">
 					<p><em>VIDEO</em></p>
 					<video controls src="${ block.attachment.url }"></video>
 				</li>
@@ -76,8 +76,8 @@ let renderBlock = (block) => {
 			// …still up to you, but here’s an example `iframe` element:
 			let linkedVideoItem =
 				`
-				<li class="video-blocks">
-					${ block.embed.html }
+				<li class="block block--text">
+					<video controls src="${ block.embed.html }"></video>
 				</li>
 				`
 			channelBlocks.insertAdjacentHTML('beforeend', linkedVideoItem)
@@ -97,13 +97,20 @@ let renderBlock = (block) => {
         }            
 }
 
+let highlightClass = 'highlight' 
+    let imageBlock = document.querySelector('.headerandmain') 
+    let switchButton = document.querySelector('#zoomimages')
+
+    switchButton.onclick = () => { // Attach the event.
+        imageBlock.classList.toggle(highlightClass) // Toggle the class!
+    };
+
 // It‘s always good to credit your work:
 let renderUser = (user, container) => { // You can have multiple arguments for a function!
 	let userAddress =
 		`
 		<address>
-			<h3>${ user.first_name }</h3>
-			<p><a href="https://are.na/${ user.slug }">Are.na profile ↗</a></p>
+			<h3><a href="https://are.na/${ user.slug }"> ${user.first_name} </a></h3>
 		</address>
 		`
 	container.insertAdjacentHTML('beforeend', userAddress)

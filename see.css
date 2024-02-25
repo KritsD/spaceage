@@ -1,0 +1,36 @@
+
+@media (min-width:325px) {
+
+    #titlealign {
+        background-color:rgb(23, 204, 20);
+    }
+}
+
+@media (min-width:700px) {
+    
+    header {
+        border-right: 2px solid rgb(23, 204, 20);
+    }
+
+    #titlealign {
+        background-color:rgb(23, 204, 20);
+    }
+
+    .hrshow {
+        border: 1px solid rgb(23, 204, 20);
+    }
+}
+
+@media (min-width:900px) {
+
+    #titlealign {
+        background-color:rgb(0, 255, 55);
+    }
+}
+
+
+/* GENERAL CODE*/
+
+hr {
+  border: 1px solid rgb(23, 204, 20);
+}

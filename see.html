@@ -5,51 +5,52 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="reset.css" rel="stylesheet">
         <link href="style.css" rel="stylesheet">
+        <link href="see.css" rel="stylesheet">
         <script defer src="arena see.js"></script>
         <title>Space Age</title>
     </head>
     <body>
         <section class="headerandmain">
             <header>
-                <ul>
-                    <hr>
-                    <li><h1 id="channel-title"></h1></li>
+                <hr>
+                <ul class="sticky"> 
+                    <li><h1><a href="index.html" id="channel-title"></a></h1></li>
                     <li><section id="channel-description"></section></li>
+                    <div class="hrshow"><hr></div>
                 </ul>
             </header>
+            
             <main>
                 <section class="container">
+                    <hr>
                     <ul>
-                        <hr>
                         <li><h2>mission see</h2></li>
                         <hr>
-                        <section class="forimages">
-                            <button id="zoomimages"><li class="innergrid" id="channel-blocks"></li></button>
+                        <section>
+                            <button id="zoomimages"><li class="innergrid" id="channel-blocks"></li><hr><h2 class="footerspacing">Click to launch</h2></button>
                         </section>
+                        <hr>
                     </ul>
-                </section>
             </main>
         </section>
 
-        <footer>
-            <hr>
-            <div class="indexauthors">
-                <h2 class="footerspacing">Your authors</h2>
-                <section id="channel-users"></section>
-            </div>
-
-            <hr>
-            <div id="footer">
+            <footer>
+                <section class="author">
+                    <h3>BUILT BY</h3>
+                    <section id="channel-users"></section>
+                </section>
                 <hr>
-                <button class="footerspacing"><h2><a id="channel-link">See on Are.na ↗</a></h2></button>
+                <div id="footer">
+                    <button class="footerspacing"><h3><a href="see.html"> Reset</a></h3></button>
+                    <hr class="black">
+                    <button class="footerspacing"><h3><a id="channel-link">See on Are.na ↗</a></h3></button>
+                    <!--<hr><section class="footerspacing" id="channel-description"></section>-->
+                    <hr>
+                    <h3 class="footerspacing"><span id="channel-count"></span> blocks</h3>
+                    <hr>
+                    <button class="footerspacing"><h3><a href="index.html">Back</a></h3></button>
+                </div>
                 <hr>
-                <section class="footerspacing" id="channel-description"></section>
-                <hr>
-                <h2 class="footerspacing"><span id="channel-count"></span> blocks</h2>
-                <hr>
-                <p><a href="index.html">Back</a></p>
-            </div>
-            <hr>
-        </footer>
+            </footer>
     </body>
 </html>

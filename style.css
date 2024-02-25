@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 @media screen {
 
@@ -34,22 +34,24 @@
         -webkit-text-fill-color: transparent; 
         -webkit-background-clip: text;
         background-clip: text;}*/
-    
-    h2 {
-        font-size: calc(1.5 * var(--typography-base));
-    }
-
-    h3 {
-        font-size: calc(1.5 * var(--typography-base));
-    }
-
-
 }
 
 @media (min-width:325px) {
 
+    #titlealign {
+        padding-left: 5rem;
+        padding-right: 5rem;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        background-color:rgb(28, 21, 21);
+    }
+
+    #indexh1 > a {
+        color:  rgb(255, 254, 248);
+    }
+
     .headings {
-        font-size: calc(3.5 * var(--typography-base));
+        font-size: calc(3 * var(--typography-base));
         text-align: center;
         display: grid;
         grid-template-rows: 3 1fr;
@@ -62,7 +64,7 @@
     }
 
     li {
-        padding:1rem;
+        padding: 1.5rem;
     }
 
     /*.textblock {
@@ -72,7 +74,7 @@
     }*/
 
     .block-text {
-        border: 2px
+        border: 2px;
     }
 
     h1 {
@@ -81,14 +83,35 @@
         padding-top: 1em;
         padding-bottom: 1em;
     }
+
+    h2 {
+        font-size: calc(2 * var(--typography-base));
+        text-align: center;
+        padding:0.8rem;
+    }
+
+    h3 {
+        font-size: calc(1.5 * var(--typography-base));
+        text-align: center;
+        padding:0.5rem;
+    }
+
+    .leftindex {
+        text-align: center;
+        font-size: calc(2.5 * var(--typography-base));
+    }
+
+    .hrshow {
+        display: none;
+    }
 }
 
 @media (min-width:700px) {
     
     header {
-        border-right: 2px solid rgb(4, 87, 134);
+        border-right: 2px solid rgb(28, 21, 21);
     }
-
+    
     .headings {
         text-align: left;
     }
@@ -96,31 +119,76 @@
     .headerandmain {
         display: grid;
         grid-template-columns: 0.5fr 10fr;
+        grid-gap: 0%;
     }
 
     h1 {
-        font-size: calc(3.2 * var(--typography-base));
+        font-size: calc(2.8 * var(--typography-base));
         text-align: center;
-        writing-mode: vertical-rl;
+        writing-mode: vertical-lr;
         text-orientation: upright;
-        padding: 2rem;
+        padding: 1rem;
     }
 
-    li {
+    #indexh1 {
+        font-size: calc(6 * var(--typography-base));
+    }
+
+    h2 {
+        font-size: calc(2.3 * var(--typography-base));
+    }
+
+    #titlealign {
+        padding-left: 3rem;
+        padding-right: 3rem;
+        padding-top: 0rem;
+        padding-bottom: 0rem;
+        background-color:rgb(28, 21, 21);
+    }
+
+    .sticky {
+        position: sticky;
+        top: 1rem;
+        align-self: start;
+    }
+
+    .leftindex {
         text-align: left;
-        
+        font-size: calc(2.5 * var(--typography-base));
+    }
+
+    .hrshow {
+        display: contents;
+        border: 1px solid rgb(28, 21, 21);
     }
 
     .innergrid {
         display: grid;
-        grid-gap: 0%
+        grid-template-columns: repeat(3, 8fr);
+        grid-gap: 0%;
     }
 
-    
-    #hrshow {
-        border-bottom: 2px solid rgb(4, 87, 134);
+    .innergrid2 {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 0%;
     }
 
+}
+
+@media (min-width:900px) {
+
+    #indexh1 {
+        font-size: calc(8 * var(--typography-base));
+    }
+
+    #titlealign {
+        padding-left: 10%rem;
+        padding-right: 10%rem;
+        padding-top: 0rem;
+        padding-bottom: 0rem;
+        background-color:rgb(28, 21, 21);
+    }
 }
 
 
@@ -128,86 +196,110 @@
 
 html {
     /*background-color: rgb(255, 252, 162)*/
-    background-color: rgb(28, 3, 92);
+    background-color: rgb(255, 254, 248);
 }
 
 h1, h2, h3, h4, .picture, a {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: "Space Mono", monospace;
     font-weight: 400;
     font-style: normal;
-    margin-top: 0.5rem;
-    color: rgb(0, 255, 234);
+    color: rgb(17, 15, 31);
     letter-spacing: 0.05rem;
-}
+    text-transform: uppercase;
+} 
 
 ul > h4 {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: "Space Mono", monospace;
     font-weight: 400;
     font-style: normal;
-    color: rgb(255, 255, 255);
+    color: rgb(28, 21, 21);
     letter-spacing: 0.05rem;
     padding: 1rem;
 }
 
 blockquote > h1, blockquote > p {
-    font-size: 1rem;
-    font-family: 'Courier New', Courier, monospace;
-    color: rgb(0, 255, 234);
+    font-family: "Space Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
+    color: rgb(28, 21, 21);
     text-align: left;
 }
 
 h5, p {
     font-size: 0.5rem;
-    color: rgb(0, 255, 234);
+    color: rgb(28, 21, 21);
     text-align: left;
-    font-family: monospace;
+    font-family: "Space Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
     padding-top: 1rem;
 }
 
 hr {
-  border: 1px solid rgb(4, 87, 134);
+  border: 1px solid rgb(28, 21, 21);
 }
 
-.video-blocks {
-    width:500px;
-    height:300px;
+.author {
+    display: grid;
+    grid-template-columns: repeat(2fr, 2fr);
+    grid-gap: 0%;
+    padding: 1rem;
 }
+
+.footerspacing {
+    padding: 1rem;
+}
+
 
 /*index*/
-.hover:hover {
+.orangehover:hover {
     letter-spacing: 0.5rem;
     transition-duration: 1s;
+    text-decoration:underline;
+    text-decoration-color: rgb(255, 64, 0)
+}
+
+.greenhover:hover {
+    letter-spacing: 0.5rem;
+    transition-duration: 1s;
+    text-decoration:underline;
+    text-decoration-color: rgb(23, 204, 20);
+}
+
+.bluehover:hover {
+    letter-spacing: 0.5rem;
+    transition-duration: 1s;
+    text-decoration:underline;
+    text-decoration-color: rgb(0, 166, 255);
 }
 
 
-/*IMAGES*/
+/*Interaction*/
 
 #zoomimages {
     cursor: pointer;
-    width: 100px;
-    height: auto;
 }
 
-.forimages {
-    position: fixed;
-    bottom: 0;
-    left:50%;
-    transform: translateX(-50%);
-    animation: moveDown 20s linear infinite forwards;
+.headerandmain {
+    transition: all 1s ease-in-out; /* Transition everything. */
 }
 
 @keyframes moveDown {
 	0% {
-		transform: translateY(100%);
-        transform: scale(5);
+		transform: translateY(0%);
 	}
 
 	100% {
 		transform: translateY(-100%);
-        transform: scale(1);
+        transform: ease-in-out;
 	}
 }
 
-.forimages.highlight:hover {
-    animation-play-state: paused;
+.headerandmain.highlight {
+    animation: moveDown 1s linear forwards;
+}
+
+video {
+    width: 100%;
+    height: 100%;
 }
