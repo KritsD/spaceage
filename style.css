@@ -375,6 +375,10 @@ h3 {
     justify-content: center;
 }
 
+.block:hover {
+    cursor: zoom-in;
+}
+
 .zoomed .block.active {
     position: fixed;
     top:0;
@@ -384,8 +388,10 @@ h3 {
     background-color: rgba(85, 255, 0, 0.871);
     padding: 5em;
     justify-content: center;
+    cursor:auto;
     /* Add any other styles for the zoomed state */
 }
+
 
 .zoomed {
     overflow: hidden;
