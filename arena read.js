@@ -38,10 +38,15 @@ let renderBlock = (block) => {
 		let textItem =
 		`
 			<li class="block block--text">
-            <p><em>TEXT</em></p>
-			<p> ${block.title} 
-            ${ block.content_html }
-            <p><a href="${ block.source}">See the original ↗</a></p>
+            <h3> ${block.title}</h3>
+                <hr>
+                <div>
+                    <h3 class="size">${ block.content }</h3>
+            </div>
+                <hr>
+                <h3>${block.description}</h3>
+                <hr>
+                <p class="created">${block.created_at} </p>
 			</li>
 			`
 			channelBlocks.insertAdjacentHTML('beforeend', textItem)
@@ -50,28 +55,49 @@ let renderBlock = (block) => {
 
     // Links!
 	if (block.class == 'Link') {
+    if (block.description.length > 0) {
 		let linkItem =
 			`
 			<li>
-				<p><em>LINK</em></p>
-				<h3>${ block.title }</h3>
-                <picture>
+                <h3> ${block.title}</h3>
+                <hr>
+                <div>
                     <source media="(max-width: 428px)" srcset="${ block.image.thumb.url }">
                     <source media="(max-width: 640px)" srcset="${ block.image.large.url }">
                     <img src="${ block.image.original.url }">
-                </picture>
-				${ block.description_html }
-				<p><a href="${ block.source.url }">See the original ↗</a></p>
+                </div>
+                <hr>
+                <h3><a href="${ block.source.url }">See the original ↗</a></h3>
+                <hr>
+                <p class="created">${block.created_at} </p>
 			</li>
 			`
 		channelBlocks.insertAdjacentHTML('beforeend', linkItem)
-	}
+    }
+	else if (block.class == 'Link') {
+		let linkItem =
+			`
+			<li>
+                <h3> ${block.title}</h3>
+                <hr>
+                <div>
+                    <source media="(max-width: 428px)" srcset="${ block.image.thumb.url }">
+                    <source media="(max-width: 640px)" srcset="${ block.image.large.url }">
+                    <img src="${ block.image.original.url }">
+                </div>
+                <hr>
+                <h3><a href="${ block.source.url }">See the original ↗</a></h3>
+                <hr>
+                <p class="created">${block.created_at} </p>
+			</li>
+			`
+		channelBlocks.insertAdjacentHTML('beforeend', linkItem)
+	}}
 
      // Uploaded (not linked) media…
     if (block.class == 'Attachment') {
         `
         <li>
-            <p><em>Attachment</em></p>
             <h3>${block.title}</h3>
         </li>
         `
@@ -82,16 +108,18 @@ let renderBlock = (block) => {
         let PDFItem =
     `
         <li class="block block--text">
-            <p><em>PDF</em></p>
                 <text>
-                <h3>${block.title}</h3>
-                <picture>
+                <h3> ${block.title}</h3>
+                <hr>
+                <div>
                     <source media="(max-width: 428px)" srcset="${ block.image.thumb.url }">
                     <source media="(max-width: 640px)" srcset="${ block.image.large.url }">
                     <img src="${ block.image.original.url }">
-                </picture>
-                <p><a href="${ block.source.url }">See the original↗</a></p>
-                    
+                </div>
+                <hr>
+                <h3><a href="${ block.source.url }">See the original ↗</a></h3>
+                <hr>
+                <p class="created">${block.created_at} </p>
         </li>
     `
     channelBlocks.insertAdjacentHTML('beforeend', PDFItem)
@@ -160,7 +188,7 @@ let renderUser = (user, container) => { // You can have multiple arguments for a
     let userAddress =
         `
         <address>
-            <h3><a href="https://are.na/${ user.slug }"> ${user.first_name} </a></h3>
+            <h3 class="padding"><a class="address" href="https://are.na/${ user.slug }"> ${user.first_name}↗</a></h3>
         </address>
         `
     container.insertAdjacentHTML('beforeend', userAddress)

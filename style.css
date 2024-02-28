@@ -43,7 +43,7 @@
         padding-right: 5rem;
         padding-top: 1rem;
         padding-bottom: 1rem;
-        background-color:rgb(28, 21, 21);
+        background-color:rgb(255, 64, 0);
     }
 
     #indexh1 > a {
@@ -65,6 +65,7 @@
 
     li {
         padding: 1.5rem;
+        justify-content: center;
     }
 
     /*.textblock {
@@ -104,12 +105,28 @@
     .hrshow {
         display: none;
     }
+
+    .created {
+        font-size: calc(1.2 * var(--typography-base)); 
+    }
+
+    .innergrid2 {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 0%;
+        align-self:start;
+        align-items: center;
+        width: 100%;
+        margin: auto;
+        justify-content: center;
+    }
+
 }
 
 @media (min-width:700px) {
     
     header {
-        border-right: 2px solid rgb(28, 21, 21);
+        border-right: 2px solid rgb(255, 64, 0);
     }
     
     .headings {
@@ -143,7 +160,7 @@
         padding-right: 3rem;
         padding-top: 0rem;
         padding-bottom: 0rem;
-        background-color:rgb(28, 21, 21);
+        background-color:rgb(255, 64, 0);
     }
 
     .sticky {
@@ -159,21 +176,24 @@
 
     .hrshow {
         display: contents;
-        border: 1px solid rgb(28, 21, 21);
-    }
-
-    .innergrid {
-        display: grid;
-        grid-template-columns: repeat(3, 8fr);
-        grid-gap: 0%;
+        border: 1px solid rgb(255, 64, 0);
     }
 
     .innergrid2 {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(1, 1fr);
         grid-gap: 0%;
+        align-self:start;
+        align-items: center;
+        width: 80%;
+        margin: auto;
+        justify-content: center;
     }
 
+    .created {
+        font-size: calc(1.3 * var(--typography-base)); 
+        margin-bottom: 1rem;
+    }
 }
 
 @media (min-width:900px) {
@@ -187,7 +207,40 @@
         padding-right: 10%rem;
         padding-top: 0rem;
         padding-bottom: 0rem;
-        background-color:rgb(28, 21, 21);
+        background-color:rgb(255, 64, 0);
+    }
+
+    .innergrid3 {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 0%;
+        align-self: start;
+        align-items: center;
+        padding: 2rem;
+        width: 100%;
+    }
+}
+
+@media (min-width:1002px) {
+    .innergrid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 0%;
+        align-self: center;
+        align-items: center;
+        padding-left: 5rem;
+        padding-right: 5rem;
+    }
+
+    .innergrid2 {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 0%;
+        align-self:start;
+        align-items: center;
+        width: 45%;
+        margin: auto;
+        justify-content: center;
     }
 }
 
@@ -221,7 +274,7 @@ blockquote > h1, blockquote > p {
     font-family: "Space Mono", monospace;
     font-weight: 400;
     font-style: normal;
-    color: rgb(28, 21, 21);
+    color: rgb(255, 64, 0);
     text-align: left;
 }
 
@@ -236,7 +289,7 @@ h5, p {
 }
 
 hr {
-  border: 1px solid rgb(28, 21, 21);
+  border: 1px solid rgb(255, 64, 0);
 }
 
 .author {
@@ -246,8 +299,22 @@ hr {
     padding: 1rem;
 }
 
-.footerspacing {
+h3 {
+    padding: 1.2rem;
+}
+
+.footerspacing:hover {
+    letter-spacing: 0.1rem;
+    transition-duration: 1s;
+    text-decoration:underline;
+}
+
+.spacingandhover {
     padding: 1rem;
+}
+
+.spacing {
+    padding-top: 1.2rem;
 }
 
 
@@ -256,7 +323,7 @@ hr {
     letter-spacing: 0.5rem;
     transition-duration: 1s;
     text-decoration:underline;
-    text-decoration-color: rgb(255, 64, 0)
+    text-decoration-color: rgb(255, 0, 247);
 }
 
 .greenhover:hover {
@@ -278,6 +345,7 @@ hr {
 
 #zoomimages {
     cursor: pointer;
+    width:100%;
 }
 
 .headerandmain {
@@ -299,7 +367,83 @@ hr {
     animation: moveDown 1s linear forwards;
 }
 
-video {
+
+.block {
+    transition: transform 0.3s ease-in-out;
     width: 100%;
     height: 100%;
+    justify-content: center;
+}
+
+.zoomed .block.active {
+    position: fixed;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(85, 255, 0, 0.871);
+    padding: 5em;
+    justify-content: center;
+    /* Add any other styles for the zoomed state */
+}
+
+.zoomed {
+    overflow: hidden;
+}
+
+/* Style for the close button */
+.close-btn {
+    position: absolute;
+    background-color: rgb(85, 255, 0);
+    cursor: pointer;
+}
+
+/* Hide the close button by default */
+.zoom:hover .close-btn {
+    display: block;
+}
+
+/* Display the close button on hover */
+.close-btn:hover {
+    background-color: #ccc;
+}
+
+/*Hear Blocks*/
+video {
+    width: 100%;
+}
+
+
+.richitem {
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.audioblock {
+    background: black;
+    width: 100%;
+    height: 350px;
+    align-items: center;
+    padding-bottom: 3rem;;
+}
+
+.videoblock {
+    width: 100%;
+    align-items: center;
+}
+
+.padding {
+    padding:0;
+}
+
+.address:hover {
+    letter-spacing: 0.5rem;
+    transition-duration: 1s;
+    text-decoration:underline;
+}
+
+.original:hover {
+    letter-spacing: 0.2rem;
+    transition-duration: 0.5s;
+    text-decoration: underline;
 }

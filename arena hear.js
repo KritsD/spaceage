@@ -42,7 +42,13 @@ let renderBlock = (block) => {
 			let audioItem =
 				`
 				<li>
-					<audio controls src="${ block.attachment.url }"></video>
+				<h3> ${block.title}</h3>
+						<hr>
+						<div class="audioblock">
+							<audio controls src="${ block.attachment.url }"></audio>
+						</div>
+						<hr>
+						<p class="created">${block.created_at} </p>
 				</li>
 				`
 			channelBlocks.insertAdjacentHTML('beforeend', audioItem)
@@ -55,9 +61,14 @@ let renderBlock = (block) => {
 			// …still up to you, but we’ll give you the `video` element:
 			let videoItem =
 				`
-				<li class="block block--text">
-					<p><em>VIDEO</em></p>
-					<video controls src="${ block.attachment.url }"></video>
+				<li class="videoblock">
+					<h3> ${block.title}</h3>
+						<hr>
+						<div>
+							<video controls src="${ block.attachment.url }"></video>
+						</div>
+						<hr>
+						<p class="created">${block.created_at} </p>
 				</li>
 				`
 			channelBlocks.insertAdjacentHTML('beforeend', videoItem)
@@ -76,20 +87,31 @@ let renderBlock = (block) => {
 			// …still up to you, but here’s an example `iframe` element:
 			let linkedVideoItem =
 				`
-				<li class="block block--text">
-					<video controls src="${ block.embed.html }"></video>
+				<li>
+					<h3> ${block.title}</h3>
+					<hr>
+					<div>
+						${ block.embed.html }
+					</div>
+					<hr>
+					<p class="created">${block.created_at} </p>
 				</li>
 				`
 			channelBlocks.insertAdjacentHTML('beforeend', linkedVideoItem)
 			// More on iframe: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe
 		}
 
+
             // Linked audio!
             if (embed.includes('rich')) {
                 let richItem =
                 `
-                    <li>
-                        ${ block.embed.html }
+                    <li class="richitem">
+						<h3> ${block.title}</h3>
+						<hr>
+							<div>${ block.embed.html }</div>
+						<hr>
+						<p class="created">${block.created_at} </p>
                     </li>
                     `
                     channelBlocks.insertAdjacentHTML('beforeend', richItem)
@@ -110,7 +132,7 @@ let renderUser = (user, container) => { // You can have multiple arguments for a
 	let userAddress =
 		`
 		<address>
-			<h3><a href="https://are.na/${ user.slug }"> ${user.first_name} </a></h3>
+			<h3 class="padding"><a class="address" href="https://are.na/${ user.slug }"> ${user.first_name}↗</a></h3>
 		</address>
 		`
 	container.insertAdjacentHTML('beforeend', userAddress)

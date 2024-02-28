@@ -4,8 +4,6 @@ let markdownIt = document.createElement('script')
 markdownIt.src = 'https://cdn.jsdelivr.net/npm/markdown-it@14.0.0/dist/markdown-it.min.js'
 document.head.appendChild(markdownIt)
 
-
-
 // Okay, Are.na stuff!
 let channelSlug = 'space-age-t7hodcanmxs' // The “slug” is just the end of the URL
 
@@ -17,7 +15,7 @@ let placeChannelInfo = (data) => {
     let channelDescription = document.getElementById('channel-description')
     let channelCount = document.getElementById('channel-count')
     let channelLink = document.getElementById('channel-link')
-    
+
     // Then set their content/attributes to our data:
     channelTitle.innerHTML = data.title
     channelDescription.innerHTML = window.markdownit().render(data.metadata.description) // Converts Markdown → HTML
@@ -30,18 +28,65 @@ let placeChannelInfo = (data) => {
 let renderBlock = (block) => {
 
     // To start, a shared `ul` where we’ll insert all our blocks
-    let channelBlocks = document.getElementById('channel-blocks')
+    let channelBlocks = document.getElementById('channel-blocks');
 
     // Images!
 	if (block.class == 'Image') {
 		let imageItem =
 			`
 			    <li>
-			    <img src="${block.image.thumb.url}">
+                    <h3> ${block.title}</h3>
+                    <hr>
+                    <div class="block">
+                        <img src="${block.image.thumb.url}" onclick="toggleZoom(this)">
+                        <button onclick="toggleZoom(this)"></button>
+                    </div>
+                    <hr>
+                    <p class="created">${block.created_at} </p>
 			    </li>
 			`
 		channelBlocks.insertAdjacentHTML('beforeend', imageItem)
 		// …up to you!
+
+        function toggleZoom(element) {
+            let parentBlock = element.parentElement;
+            parentBlock.classList.toggle('active');
+    
+            // Toggle zoom on the body or another container
+            document.body.classList.toggle('zoomed');
+        }
+    
+        // Styling figcaption for onClick
+		let openButtons = document.querySelectorAll('.block')
+		openButtons.forEach((openButton) => {
+			openButton.onclick = () => {
+				let parentBlock = openButton.parentElement
+				parentBlock.classList.toggle('active');
+                document.body.classList.toggle('zoomed');
+			}
+		})
+
+		// Styling close button
+		let closeButtons = document.querySelectorAll('.block')
+		closeButtons.forEach((closeButton) => {
+			closeButton.onclick = () => {
+				let parentBlock = closeButton.closest('.block')
+				parentBlock.classList.toggle('active');
+                document.body.classList.toggle('zoomed');
+        };
+		})
+        
+
+        // let imageElement = channelBlocks.lastElementChild.querySelector('.zoom');
+
+        // // mouseover and mouseout event listeners
+        // imageElement.addEventListener('mouseover', function () {
+        //     increaseSize(this);
+        // });
+
+        // imageElement.addEventListener('mouseout', function () {
+        //     decreaseSize(this);
+        // });
     }
 }
 
@@ -58,7 +103,7 @@ let renderUser = (user, container) => { // You can have multiple arguments for a
     let userAddress =
         `
         <address>
-            <h3><a href="https://are.na/${ user.slug }"> ${user.first_name} </a></h3>
+            <h3 class="padding"><a class="address" href="https://are.na/${ user.slug }"> ${user.first_name}↗</a></h3>
         </address>
         `
     container.insertAdjacentHTML('beforeend', userAddress)
@@ -81,5 +126,6 @@ fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-stor
         let channelUsers = document.getElementById('channel-users') // Show them together
         data.collaborators.forEach((collaborator) => renderUser(collaborator, channelUsers))
         renderUser(data.user, channelUsers)
+
     })
 
