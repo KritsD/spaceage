@@ -4,23 +4,31 @@ let markdownIt = document.createElement('script')
 markdownIt.src = 'https://cdn.jsdelivr.net/npm/markdown-it@14.0.0/dist/markdown-it.min.js'
 document.head.appendChild(markdownIt)
 
+const audio = new Audio("audio.mp3");
+const buttons = document.querySelectorAll("button");
+
+buttons.forEach(button => {
+  button.addEventListener("click", () => {
+    audio.play();
+  });
+});
+
 // Okay, Are.na stuff!
 let channelSlug = 'space-age-t7hodcanmxs' // The “slug” is just the end of the URL
 
-
 // First, let’s lay out some *functions*, starting with our basic metadata:
-let placeChannelInfo = (data) => {
+function placeChannelInfo(data) {
     // Target some elements in your HTML:
-    let channelTitle = document.getElementById('channel-title')
-    let channelDescription = document.getElementById('channel-description')
-    let channelCount = document.getElementById('channel-count')
-    let channelLink = document.getElementById('channel-link')
+    let channelTitle = document.getElementById('channel-title');
+    let channelDescription = document.getElementById('channel-description');
+    let channelCount = document.getElementById('channel-count');
+    let channelLink = document.getElementById('channel-link');
 
     // Then set their content/attributes to our data:
-    channelTitle.innerHTML = data.title
-    channelDescription.innerHTML = window.markdownit().render(data.metadata.description) // Converts Markdown → HTML
-    channelCount.innerHTML = data.length
-    channelLink.href = `https://www.are.na/channel/${channelSlug}`
+    channelTitle.innerHTML = data.title;
+    channelDescription.innerHTML = window.markdownit().render(data.metadata.description); // Converts Markdown → HTML
+    channelCount.innerHTML = data.length;
+    channelLink.href = `https://www.are.na/channel/${channelSlug}`;
 }
 
 
@@ -75,18 +83,6 @@ let renderBlock = (block) => {
                 document.body.classList.toggle('zoomed');
         };
 		})
-        
-
-        // let imageElement = channelBlocks.lastElementChild.querySelector('.zoom');
-
-        // // mouseover and mouseout event listeners
-        // imageElement.addEventListener('mouseover', function () {
-        //     increaseSize(this);
-        // });
-
-        // imageElement.addEventListener('mouseout', function () {
-        //     decreaseSize(this);
-        // });
     }
 }
 

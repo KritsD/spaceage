@@ -180,11 +180,6 @@
     }
 
     .innergrid2 {
-        display: grid;
-        grid-template-columns: repeat(1, 1fr);
-        grid-gap: 0%;
-        align-self:start;
-        align-items: center;
         width: 80%;
         margin: auto;
         justify-content: center;
@@ -212,7 +207,7 @@
 
     .innergrid3 {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(4, 1fr);
         grid-gap: 0%;
         align-self: start;
         align-items: center;
@@ -234,13 +229,12 @@
 
     .innergrid2 {
         display: grid;
-        grid-template-columns: repeat(1, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         grid-gap: 0%;
         align-self:start;
         align-items: center;
-        width: 45%;
-        margin: auto;
-        justify-content: center;
+        width:100%;
+        margin:auto;
     }
 }
 
@@ -349,7 +343,7 @@ h3 {
 }
 
 .headerandmain {
-    transition: all 1s ease-in-out; /* Transition everything. */
+    transition: all 5s ease-in-out; /* Transition everything. */
 }
 
 @keyframes moveDown {
@@ -364,7 +358,7 @@ h3 {
 }
 
 .headerandmain.highlight {
-    animation: moveDown 1s linear forwards;
+    animation: moveDown 12s linear forwards;
 }
 
 

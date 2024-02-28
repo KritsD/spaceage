@@ -30,12 +30,23 @@
                             <div>
                                 <li class="innergrid3" id="channel-blocks"></li>
                             </div>
-                            <button id="zoomimages"><hr><h2 class="footerspacing">Click to launch</h2></button>
+                            <audio id="audio" src="audio.mp3"></audio>
+                            <button id="zoomimages">
+                                <hr>
+                                <h2 class="footerspacing">Click to launch</h2>
+                            </button>
                         </section>
                         <hr>
                     </ul>
             </main>
         </section>
+
+        <script>
+            function clickSound(){
+        var sound = document.getElementById('audio');
+        sound.play();
+    }
+        </script>
 
         <footer>
             <section class="author">

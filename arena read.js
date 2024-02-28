@@ -4,7 +4,14 @@ let markdownIt = document.createElement('script')
 markdownIt.src = 'https://cdn.jsdelivr.net/npm/markdown-it@14.0.0/dist/markdown-it.min.js'
 document.head.appendChild(markdownIt)
 
+const audio = new Audio("audio.mp3");
+const buttons = document.querySelectorAll("button");
 
+buttons.forEach(button => {
+  button.addEventListener("click", () => {
+    audio.play();
+  });
+});
 
 // Okay, Are.na stuff!
 let channelSlug = 'space-age-t7hodcanmxs' // The “slug” is just the end of the URL

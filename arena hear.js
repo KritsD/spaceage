@@ -9,7 +9,14 @@ document.head.appendChild(markdownIt)
 // Okay, Are.na stuff!
 let channelSlug = 'space-age-t7hodcanmxs' // The “slug” is just the end of the URL
 
+const audio = new Audio("audio.mp3");
+const buttons = document.querySelectorAll("button");
 
+buttons.forEach(button => {
+  button.addEventListener("click", () => {
+    audio.play();
+  });
+});
 
 // First, let’s lay out some *functions*, starting with our basic metadata:
 let placeChannelInfo = (data) => {
