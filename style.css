@@ -60,9 +60,9 @@
 
     div {
         display: flex;
-        justify-content:space-evenly;
+        justify-content:space-between;
     }
-
+   
     li {
         padding: 1.5rem;
         justify-content: center;
@@ -120,7 +120,6 @@
         margin: auto;
         justify-content: center;
     }
-
 }
 
 @media (min-width:700px) {
